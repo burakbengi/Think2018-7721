@@ -9,13 +9,15 @@ del %GOPATH%\bin\*.exe
 REM Remove the pkg directory from the go workspace folder
 rmdir /Q /S %GOPATH%\pkg
 
-REM Stop our SData TM1 Server (we are updating the model image)
+REM Stop our TM1 Servers (which we are making updates to)
+net stop "IBM Cognos TM1 Server - Planning Sample"
 net stop "IBM Cognos TM1 Server - SData"
 
 REM Update the VM
 xcopy .\files\* c:\* /s /y
 
-REM Start our SData TM1 Server again
+REM Start our TM1 Servers again
+net start "IBM Cognos TM1 Server - Planning Sample"
 net start "IBM Cognos TM1 Server - SData"
 
 REM Stop NGINX if already exists and running
