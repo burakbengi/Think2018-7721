@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<!-- Load all of the stylesheets required for TM1 Web and Dojo -->
+	<link href="scripts/dojo/resources/dojo.css" rel="stylesheet" type="text/css" />
+	<link href="scripts/dijit/themes/claro/claro.css" rel="stylesheet" type="text/css/>
+	<link type="text/css" rel="stylesheet" href="scripts/tm1web/themes/flat/flat.css">
+	<link href="scripts/tm1web/themes/flat/workbook/Worksheet.css" rel="stylesheet" type="text/css" />
+	<link href="scripts/tm1web/themes/flat/cubeview/CubeViewer.css" rel="stylesheet" type="text/css" />
+	
+	<!-- Load all of the stylesheets required for this application -->
+	<link href="css/style.css" rel="stylesheet" type="text/css" />
+	<!-- Load the dojo configuration file. -->
+	<!--<script type="text/javascript" src="scripts/tm1web/common/DjConfig.js"></script>-->
+	<script>
+	var dojoConfig = {
+		paths: {
+			"dashboard": "../dashboard"
+		}
+	};
+	</script>
+
+	
+	<!-- Load Dojo. --> 
+	<script src="scripts/dojo/dojo.js" data-dojo-config="locale:'en-us'"></script>
+	<!--<script type="text/javascript" src="scripts/dashboard/main.js"></script>-->
+	
+	<!-- Load our application -->
+	<script type="text/javascript" language="javascript">
+		require(["dashboard/main"]);
+	</script>
+</head>
+<body class="claro tm1web">
+</body>
+</html>
