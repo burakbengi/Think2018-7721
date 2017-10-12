@@ -3,9 +3,8 @@
 REM Grab current working directory
 SET vmupdate_path=%cd%
 
-REM Remove older versions of the lab instructions that might still exist in the doc folder
-del %GOPATH%\src\github.com\hubert-heijkers\vision2017\doc\*.doc*
-del %GOPATH%\src\github.com\hubert-heijkers\vision2017\doc\*.pdf
+REM Remove older versions of the lab instructions
+rmdir /Q /S %GOPATH%\src\github.com\hubert-heijkers\vision2017\doc
 
 REM Remove the exe's, the build versions of our builder and watcher, from the go workspace bin folder
 del %GOPATH%\bin\*.exe
