@@ -145,7 +145,6 @@ define([
             deleteProduct.startup();
         },
 
-
         // Issues a logout command to TM1 Web for the current session.
         _logout: function() {
             xhr.post({
