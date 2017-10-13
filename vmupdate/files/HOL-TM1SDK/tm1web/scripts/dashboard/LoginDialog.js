@@ -1,6 +1,4 @@
-/**
- * A login dialog based off of the TM1 Web JavaScript Library login dialog.
- */
+// A login dialog based off of the TM1 Web JavaScript Library login dialog.
 define([
     "dojo/_base/declare",
     "dojo/_base/lang",
@@ -23,27 +21,21 @@ define([
         // Use CarSales as the TM1 server to authenticate against.
         tm1Server: "CarSales",
 
-        /**
-         * Shows the login dialog and sets the page's background.
-         */
+        // Shows the login dialog and sets the page's background.
         show: function() {
             this.inherited(arguments);
 
             domClass.add(document.body, "loginBackground");
         },
 
-        /**
-         * Hides the login dialog and removes the page's background.
-         */
+        // Hides the login dialog and removes the page's background.
         hide: function() {
             this.inherited(arguments);
 
             domClass.remove(document.body, "loginBackground");
         },
 
-        /**
-         * Attempts to login to TM1 Web.
-         */
+        // Attempts to login to TM1 Web.
         login: function() {
             // If the specified information is not valid or the login button
             // is disabled, abort the login process.
@@ -68,9 +60,7 @@ define([
             });
         },
 
-        /**
-         * Handles the response from the TM1 Web login call.
-         */
+        // Handles the response from the TM1 Web login call.
         _onLogin: function(response) {
             // If the response has a reply (indicating login succeeded)
             if(response.reply) {

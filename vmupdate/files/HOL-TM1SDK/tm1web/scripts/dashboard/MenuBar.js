@@ -1,7 +1,4 @@
-
-/**
- * Menu bar widget containing various actions such as recalculate, add a product, and logout.
- */
+// Menu bar widget containing various actions such as recalculate, add a product, and logout.
 define([
     "dojo/_base/declare",
     "dojo/_base/lang",
@@ -18,14 +15,10 @@ define([
 
     var MenuBar = declare(MenuBarBase, {
 
-        /**
-         * A session token corresponding to a TM1 Web session.
-         */
+        // A session token corresponding to a TM1 Web session.
         sessionToken: null,
 
-        /**
-         * Creates the DOM required for this widget. A Dojo-ism.
-         */
+        // Creates the DOM required for this widget. A Dojo-ism.
         buildRendering: function() {
             // Execute the base class method.
             this.inherited(arguments);
@@ -33,17 +26,15 @@ define([
             this.domNode.className += " vision";
         },
 
-        /**
-         * Actions to take after the widget has been created. A Dojo-ism.
-         */
+        // Actions to take after the widget has been created. A Dojo-ism.
         postCreate: function() {
             // Execute the base class method.
             this.inherited(arguments);
-			this._createActionsDropDown();
+            this._createActionsDropDown();
         },
-		
-		_createActionsDropDown: function() {
-			// Create a drop down menu with various actions.
+        
+        _createActionsDropDown: function() {
+            // Create a drop down menu with various actions.
             var actionMenu = DropDownMenu();
             actionMenu.domNode.className += " vision";
 
@@ -58,8 +49,8 @@ define([
                 label: "Add Product",
                 onClick: lang.hitch(this, "_addProduct")
             }));
-			
-			// Add an 'Add Product' action.
+            
+            // Add an 'Add Product' action.
             actionMenu.addChild(new MenuItem({
                 label: "Delete Product",
                 onClick: lang.hitch(this, "_deleteProduct")
@@ -77,32 +68,28 @@ define([
                 label: "Actions",
                 popup: actionMenu
             }));
-		},
+        },
 
-        /*
-         * Recalculate all of the widgets on the dashboard.
-         */
+        // Recalculate all of the widgets on the dashboard.
         _recalculate: function() {
             array.forEach(this.dashboard.getWidgets(), function(widget) {
                 widget.recalculate();
             });
         },
 
-        /**
-         * Opens a modal dialog containing a websheet which allows users
-         * to add a new product.
-         */
+        // Opens a modal dialog containing a websheet which allows users
+        // to add a new product.
         _addProduct: function() {
             var dialog = null;
 
             var addProduct = new Workbook({
-				region: "center",
-				style: "height: 100%; width: 100%;",
-				sessionToken: this.sessionToken,
-				path: "Applications/Applications/AddProduct.xlsm",
-				tm1Server: "CarSales",
-				style: "width: 500px; height: 200px; overflow: hidden;"
-			});
+                region: "center",
+                style: "height: 100%; width: 100%;",
+                sessionToken: this.sessionToken,
+                path: "Applications/Applications/AddProduct.xlsm",
+                tm1Server: "CarSales",
+                style: "width: 500px; height: 200px; overflow: hidden;"
+            });
 
             // Create a modal dialog which will contain the websheet.
             var self = this;
@@ -124,18 +111,18 @@ define([
             dialog.show();
             addProduct.startup();
         },
-		
-		_deleteProduct: function() {
-			var dialog = null;
+        
+        _deleteProduct: function() {
+            var dialog = null;
 
             var deleteProduct = new Workbook({
-				region: "center",
-				style: "height: 100%; width: 100%;",
-				sessionToken: this.sessionToken,
-				path: "Applications/Applications/DeleteProduct.xlsm",
-				tm1Server: "CarSales",
-				style: "width: 500px; height: 200px; overflow: hidden;"
-			});
+                region: "center",
+                style: "height: 100%; width: 100%;",
+                sessionToken: this.sessionToken,
+                path: "Applications/Applications/DeleteProduct.xlsm",
+                tm1Server: "CarSales",
+                style: "width: 500px; height: 200px; overflow: hidden;"
+            });
 
             // Create a modal dialog which will contain the websheet.
             var self = this;
@@ -156,15 +143,13 @@ define([
             // Show the dialog and initiate the websheet lifecyle.
             dialog.show();
             deleteProduct.startup();
-		},
+        },
 
 
-        /**
-         * Issues a logout command to TM1 Web for the current session.
-         */
+        // Issues a logout command to TM1 Web for the current session.
         _logout: function() {
             xhr.post({
-				async: false,
+                async: false,
                 url: "http://localhost:9510/tm1web/api/TM1Service/logout",
                 handleAs: "json",
                 content: {
