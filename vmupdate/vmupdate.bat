@@ -12,6 +12,9 @@ del %GOPATH%\bin\*.exe
 REM Remove the pkg directory from the go workspace folder
 rmdir /Q /S %GOPATH%\pkg
 
+REM Remove the old TM1Web content
+rmdir /Q /S C:\HOL-TM1SDK\TM1Web
+
 REM Stop our TM1 Servers (which we are making updates to)
 net stop "IBM Cognos TM1 Server - Planning Sample"
 net stop "IBM Cognos TM1 Server - SData"
