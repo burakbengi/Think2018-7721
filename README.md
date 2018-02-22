@@ -1,4 +1,4 @@
-# IBM Think 2019 - Hands-On Lab #7721
+# IBM Think 2018 - Hands-On Lab #7721
 
 Las Vegas: March 19-22
 
