@@ -25,13 +25,11 @@ net stop "IBM Cognos TM1 Server - proven_techniques"
 net stop "IBM Cognos TM1 Server - SData"
 net stop "IBM Cognos TM1 Server - SData2"
 net stop "IBM Cognos TM1 Admin Server x64"
-net stop "IBM Cognos TM1"
 
 REM Update the VM
 xcopy .\files\* c:\* /s /y
 
 REM Start the TM1 Servers we need for the lab
-net start "IBM Cognos TM1"
 net start "IBM Cognos TM1 Admin Server x64"
 net start "IBM Cognos TM1 Server - Planning Sample"
 net start "IBM Cognos TM1 Server - SData"
