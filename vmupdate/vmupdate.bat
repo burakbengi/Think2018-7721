@@ -15,6 +15,9 @@ rmdir /Q /S %GOPATH%\pkg
 REM Remove the old TM1Web content
 rmdir /Q /S C:\HOL-TM1SDK\TM1Web
 
+REM Remove any remains of a previous NorthWind model if such existed
+rmdir /Q /S C:\HOL-TM1SDK\models\NorthWind
+
 REM Make sure all TM1 Servers are stopped to be able to patch the TM1Server installation as well as models
 net stop "IBM Cognos TM1 Server - 24retail"
 net stop "IBM Cognos TM1 Server - CarSales"
@@ -31,6 +34,7 @@ xcopy .\files\* c:\* /s /y
 
 REM Start the TM1 Servers we need for the lab
 net start "IBM Cognos TM1 Admin Server x64"
+net start "IBM Cognos TM1 Server - CarSales"
 net start "IBM Cognos TM1 Server - Planning Sample"
 net start "IBM Cognos TM1 Server - SData"
 
