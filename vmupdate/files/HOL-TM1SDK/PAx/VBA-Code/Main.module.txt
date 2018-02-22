@@ -1,6 +1,6 @@
 Option Explicit
 
-Sub populateTopGridByThread()
+Sub populateTopGrid()
 
     Dim oAPI As New tm1api
     Dim oSheet As Worksheet
